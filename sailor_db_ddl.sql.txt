@@ -1,0 +1,24 @@
+-- Create Sailors table
+CREATE TABLE Sailors (
+    sid INT PRIMARY KEY,
+    sname VARCHAR(50),
+    rating INT,
+    age DECIMAL(5,2)
+);
+
+-- Create Boats table
+CREATE TABLE Boats (
+    bid INT PRIMARY KEY,
+    bname VARCHAR(50),
+    color VARCHAR(20)
+);
+
+-- Create Reserves table
+CREATE TABLE Reserves (
+    sid INT,
+    bid INT,
+    day DATE,
+    PRIMARY KEY (sid, bid, day),
+    FOREIGN KEY (sid) REFERENCES Sailors(sid),
+    FOREIGN KEY (bid) REFERENCES Boats(bid)
+);
